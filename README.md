@@ -16,6 +16,7 @@
 
 [![Paper](https://img.shields.io/badge/Paper-ICME_2026_GC_(to_appear)-2c3e50.svg)](https://ntu-musicailab.github.io/ICME26-ATTM-Grand-Challenge/)
 [![Listening demo](https://img.shields.io/badge/🎧_Demo-Listening_samples-0071e3.svg)](https://yonghyunk1m.github.io/TTM-HumanPref/)
+[![Hugging Face](https://img.shields.io/badge/🤗_Space-Landing_page-FFD21E.svg)](https://huggingface.co/spaces/yonghyunk1m/TTM-HumanPref)
 [![Reward model](https://img.shields.io/badge/arXiv-2606.17006_·_TuneJury-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2606.17006)
 [![Grand Challenge](https://img.shields.io/badge/🏆_ATTM-Grand_Challenge-f39c12.svg)](https://ntu-musicailab.github.io/ICME26-ATTM-Grand-Challenge/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
