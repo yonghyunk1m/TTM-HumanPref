@@ -1,6 +1,6 @@
 <div align="center">
 
-# Improving Text-to-Music Generation with Human Preference Rewards
+# Improving Text-to-Music Generation<br>with Human Preference Rewards
 
 ### ICME 2026 Academic Text-to-Music (ATTM) Grand Challenge · Efficiency Track
 
@@ -25,19 +25,27 @@
 
 ---
 
+<div align="center">
+
 *Built on the [TuneJury](https://arxiv.org/abs/2606.17006) preference reward ([code](https://github.com/yonghyunk1m/TuneJury)), itself a follow-up to [Music Arena](https://huggingface.co/music-arena) that distills its live human preference votes into a reusable signal. Paper: ICME 2026 Grand Challenge proceedings (to appear).*
+
+</div>
 
 ## TL;DR
 
 A 120M parameter FluxAudio-S backbone (the official challenge baseline) is conditioned on a learned human-preference reward (**TuneJury**) and refined through expert iteration and a short CRPO pass. The pipeline fits in ~40 GPU-hours on one NVIDIA RTX A5000 and produces 10 s clips in under a second at inference.
 
-**Five engineering decisions** (four at training time, one at inference):
+## Five engineering decisions
+
+Four at training time, one at inference:
 
 1. **Training-time reward conditioning** that doubles as an inference-time CFG axis. *Effect:* score-conditioned variants improve FAD-CLAP by 0.025–0.040 absolute over the FluxAudio-S baseline (text-conditioned, no score conditioning) at the SFT stage. The inference-time score knob, however, ends up saturated after the full chain (Sub. 1's reward is essentially flat across `s ∈ [0, 6]`).
 2. **Five-head sweep** over score-conditioning architectures; deployed via a v1→v2 hybrid (train in `GlobalAdaLN (v1)`, cross-load into `InputAdd (v2)` at Stage 3). *Effect:* direction matters: v1→v2 cross stays within 0.02 FAD-CLAP of native, while v2→v1 cross collapses (FAD-CLAP ~0.69, reward ~−0.50).
 3. **Expert iteration** on the top decile by combined reward + CLAP-text score. *Effect:* **dominant chain contributor**: FAD-CLAP −0.0362 on the v1 chain, paired-t significant on both CLAP and Reward.
 4. **Short CRPO preference-tuning** with a DPO-style objective for audio-caption alignment. *Effect:* within paired-t noise at this scale (FAD-CLAP −0.003, CLAP +0.002, Reward −0.002 over Chain-end). We keep the 5 k-step pass because it is inexpensive, not because it moves the headline numbers.
-5. **Inference post-processing**: joint CFG on text and reward, 3×Demucs `mdx_extra` source separation, LUFS normalisation to −16.5. *Effect:* consistently improves internal validation metrics; the score-scalar knob itself is already saturated by this point in the chain, so we hold `s = 5.0` because validation picked it, not because it remains a useful lever.
+5. **Inference post-processing**: joint CFG on text and reward, 3×Demucs `mdx_extra` source separation, LUFS normalization to −16.5. *Effect:* consistently improves internal validation metrics; the score-scalar knob itself is already saturated by this point in the chain, so we hold `s = 5.0` because validation picked it, not because it remains a useful lever.
+
+## Submissions
 
 Two seed-varied submissions:
 
@@ -58,7 +66,7 @@ TTM-HumanPref/
 ├── config/             # Our training configs (score-conditioning + CRPO recipes)
 ├── scripts/            # Our training, inference, and post-processing scripts
 │   ├── flowmatching/   # Stage 1–3 training shell scripts
-│   ├── postproc/       # 3×Demucs and LUFS normalisation
+│   ├── postproc/       # 3×Demucs and LUFS normalization
 │   └── ...
 └── docs/               # Demo page hosted via GitHub Pages
 ```
@@ -116,7 +124,7 @@ End-to-end pipeline (SFT + expert-iter + CRPO + ranker training) fits in ~40 GPU
 
 ## Inference
 
-Single-value joint CFG on text and reward, with `s = 5.0`, `w = 4.0`, 25 Euler steps, prompt prefix `"high quality instrumental music, "`. Post-processing pipes the output through 3× Demucs `mdx_extra` and LUFS-normalises to −16.5.
+Single-value joint CFG on text and reward, with `s = 5.0`, `w = 4.0`, 25 Euler steps, prompt prefix `"high quality instrumental music, "`. Post-processing pipes the output through 3× Demucs `mdx_extra` and LUFS-normalizes to −16.5.
 
 ```bash
 # Inference + post-processing (Sub. 1 = seed 42)
@@ -132,7 +140,7 @@ TuneJury is a small (~2.8 M trainable) MLP head over frozen LAION-CLAP + MERT-v1
 ## Citation
 
 To appear in the ICME 2026 ATTM Grand Challenge proceedings. BibTeX entry
-will be added once the camera-ready bibliographic details are finalised.
+will be added once the camera-ready bibliographic details are finalized.
 
 ## Acknowledgements
 
