@@ -149,7 +149,7 @@ If you find this work useful, please cite the arXiv preprint (to appear in the I
   year          = {2026},
   eprint        = {2606.21670},
   archivePrefix = {arXiv},
-  primaryClass  = {eess.AS},
+  primaryClass  = {cs.SD},
   url           = {https://arxiv.org/abs/2606.21670}
 }
 ```
