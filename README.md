@@ -14,7 +14,7 @@
 
 <br/>
 
-[![Paper](https://img.shields.io/badge/Paper-ICME_2026_GC_(to_appear)-2c3e50.svg)](https://ntu-musicailab.github.io/ICME26-ATTM-Grand-Challenge/)
+[![Paper](https://img.shields.io/badge/arXiv-2606.21670_·_Paper-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2606.21670)
 [![Listening demo](https://img.shields.io/badge/🎧_Demo-Listening_samples-0071e3.svg)](https://yonghyunk1m.github.io/TTM-HumanPref/)
 [![Hugging Face](https://img.shields.io/badge/🤗_Space-Landing_page-FFD21E.svg)](https://huggingface.co/spaces/yonghyunk1m/TTM-HumanPref)
 [![Reward model](https://img.shields.io/badge/arXiv-2606.17006_·_TuneJury-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2606.17006)
@@ -28,7 +28,7 @@
 
 <div align="center">
 
-*Built on the [TuneJury](https://arxiv.org/abs/2606.17006) preference reward ([code](https://github.com/yonghyunk1m/TuneJury)), itself a follow-up to [Music Arena](https://huggingface.co/music-arena) that distills its live human preference votes into a reusable signal. Paper: ICME 2026 Grand Challenge proceedings (to appear).*
+*Built on the [TuneJury](https://arxiv.org/abs/2606.17006) preference reward ([code](https://github.com/yonghyunk1m/TuneJury)), itself a follow-up to [Music Arena](https://huggingface.co/music-arena) that distills its live human preference votes into a reusable signal. Paper: [arXiv:2606.21670](https://arxiv.org/abs/2606.21670), to appear in the ICME 2026 Grand Challenge proceedings.*
 
 </div>
 
@@ -140,8 +140,19 @@ TuneJury is a small (~2.8 M trainable) MLP head over frozen LAION-CLAP + MERT-v1
 
 ## Citation
 
-To appear in the ICME 2026 ATTM Grand Challenge proceedings. BibTeX entry
-will be added once the camera-ready bibliographic details are finalized.
+If you find this work useful, please cite the arXiv preprint (to appear in the ICME 2026 ATTM Grand Challenge proceedings):
+
+```bibtex
+@misc{kim2026ttmhumanpref,
+  title         = {Improving Text-to-Music Generation with Human Preference Rewards},
+  author        = {Kim, Yonghyun and Lee, Junwon and Xia, Haiwen and Ma, Yinghao and Donahue, Chris},
+  year          = {2026},
+  eprint        = {2606.21670},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.AS},
+  url           = {https://arxiv.org/abs/2606.21670}
+}
+```
 
 ## Acknowledgements
 
