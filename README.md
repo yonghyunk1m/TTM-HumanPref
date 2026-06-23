@@ -28,7 +28,7 @@
 
 <div align="center">
 
-*Built on the [TuneJury](https://arxiv.org/abs/2606.17006) preference reward ([code](https://github.com/yonghyunk1m/TuneJury)), itself a follow-up to [Music Arena](https://huggingface.co/music-arena) that distills its live human preference votes into a reusable signal. Paper: [arXiv:2606.21670](https://arxiv.org/abs/2606.21670), to appear in the ICME 2026 Grand Challenge proceedings.*
+*Built on the [TuneJury](https://arxiv.org/abs/2606.17006) preference reward ([code](https://github.com/yonghyunk1m/TuneJury)), itself a follow-up to [Music Arena](https://huggingface.co/music-arena) that distills its live human preference votes into a reusable signal.*
 
 </div>
 
